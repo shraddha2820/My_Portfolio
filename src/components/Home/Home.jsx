@@ -53,26 +53,46 @@ const Home = () => {
                     I enjoy working across the stack-developing responsive frontend interfaces with React, managing server-side logic using Node.js and Express,
                     and handling data persistence with MongoDB. My goal is to build products that are not only functional but also intuitive and elegant.
                 </motion.p>
-                <Link
-                    to="Contact"
-                    smooth={true}
-                    duration={800}
-                    offset={-50}
-                >
 
-                    <motion.button
+                <div className="flex justify-center md:justify-start items-center gap-4 ">
+                    <Link
+                        to="Contact"
+                        smooth={true}
+                        duration={800}
+                        offset={-50}
+                    >
+                        <motion.button
 
-                        variants={container(1.2)}
-                        initial="hidden"
-                        animate="visible"
-                        className="mt-6 md:mt-10 text-white py-2 px-6
+                            variants={container(1.2)}
+                            initial="hidden"
+                            animate="visible"
+                            className="mt-6 md:mt-10 text-white py-2 px-6
                     text-sm md:text-lg hover:opacity-85 duration-300 
                     hover:scale-105 font-semibold rounded-full bg-[#465697]"
+                        >
+                            Contact Me
+                        </motion.button>
+                    </Link>
+                    <motion.a
+                        href="/resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        variants={container(1.4)}
+                        initial="hidden"
+                        animate="visible"
                     >
-                        Contact Me
-                    </motion.button>
-                </Link>
+                        <button
+                            className="mt-6 md:mt-10 text-white py-2 px-6
+                        text-sm md:text-lg hover:opacity-85 duration-300 
+                      hover:scale-105 font-semibold rounded-full bg-[#2f4e71]"
+                        >
+                            Resume
+                        </button>
+                    </motion.a>
+                </div>
+
             </div>
+
 
             {/* Right Section (Image) */}
             <motion.div
@@ -86,6 +106,7 @@ const Home = () => {
                     alt="Profile"
                 />
             </motion.div>
+
         </div>
     );
 };

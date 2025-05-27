@@ -19,6 +19,11 @@ const certificates = [
         title: "BookMyShow",
         img: "/certificates/certificate3.png",
     },
+    {
+        id: 4,
+        title: "DSA Module",
+        img: "/certificates/DSA_module2.png",
+    },
 ];
 
 const CertificateSlider = () => {

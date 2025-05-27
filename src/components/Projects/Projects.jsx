@@ -39,8 +39,8 @@ const projectData = [
     {
         title: "Portfolio",
         main: "A personal portfolio website showcasing projects, skills, and contact information, built using React, Tailwind CSS, and Framer Motion for smooth animations.",
-        github: "https://github.com/yourusername/energico",
-        live: "https://energico.netlify.app",
+        github: "https://github.com/shraddha-dotcom/My_Portfolio.git",
+        live: "https://shraddha28portfolio.netlify.app/",
         image: "/certificates/img3.png"
     },
 ];

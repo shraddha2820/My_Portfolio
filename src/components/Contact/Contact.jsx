@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { FaGithub, FaInstagram, FaLinkedin, FaPhoneAlt } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { motion } from 'framer-motion';
