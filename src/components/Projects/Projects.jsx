@@ -88,46 +88,4 @@ export default Projects;
 
 
 
-// import React from 'react'
-// import ProjectCards from './ProjectCards'
 
-// const Projects = () => {
-//     return (
-//         <div id="Projects" className='p-10 md:p-24 text-white'>
-//             <h1 className='text-2xl md:text-4xl text-white font-bold'>Projects</h1>
-//             <div className='py-12 px-8 flex flex-wrap gap-5'>
-//                 <ProjectCards
-//                     title="Energico"
-//                     main="A responsive and interactive web application built with
-//                      HTML, CSS, JavaScript, and Tailwind CSS. It features modern
-//                      design, smooth transitions, dynamic user interactions, showcasing clean and
-//                      efficient code with a focus on user experience."
-//                 />
-
-//                 <ProjectCards
-//                     title="E-Commerse"
-//                     main="A responsive and interactive e-commerce website built with
-//                      React, Redux and Tailwind CSS with features like product listing, shopping cart,
-//                      wishlist and user login/signup"
-//                 />
-
-//                 <ProjectCards
-//                     title="BookMyShow"
-//                     main="A responsive and interactive web application built with
-//                      HTML, CSS, JavaScript, and Tailwind CSS. It features modern
-//                      design, smooth transitions, dynamic user interactions, showcasing clean and
-//                      efficient code with a focus on user experience."
-//                 />
-//                 <ProjectCards
-//                     title="Portfolio"
-//                     main="A personal portfolio website showcasing projects,skills,and contact information"
-//                 />
-
-
-//             </div>
-
-//         </div>
-//     )
-// }
-
-// export default Projects
