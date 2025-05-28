@@ -35,12 +35,12 @@ const techSkills = [
 
 const Skills = () => {
     return (
-        <div id="Skills" className="border-b border-neutral-800 pb-24 px-4">
+        <div id="Skills" className="border-b border-neutral-800 pb-24 px-4 bg-gradient-to-br from-purple-900 to-black">
             <motion.h1
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: -100 }}
                 transition={{ duration: 1.5 }}
-                className="text-4xl text-center text-white font-bold my-20">Technical Skills</motion.h1>
+                className="text-4xl text-center text-white font-bold my-20 pt-2">Technical Skills</motion.h1>
 
             <div className="flex sm:flex-col-3 flex-wrap items-center justify-center gap-4">
                 {techSkills.map((skill, index) => (

@@ -17,7 +17,7 @@ const Home = () => {
     return (
         <div
             id="Home"
-            className="text-white flex flex-col-reverse md:flex-row items-center justify-between gap-10 p-8 md:p-20"
+            className="text-white flex flex-col-reverse md:flex-row items-center justify-between gap-10 p-8 md:p-20 bg-gradient-to-br from-purple-900 to-black"
         >
             {/* Left Section */}
             <div className="w-full md:w-2/4 text-center md:text-left">

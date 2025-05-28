@@ -9,9 +9,9 @@ const About = () => {
     return (
         <div
             id="About"
-            className="text-white bg-black bg-opacity-40 rounded-lg shadow-xl mx-4 md:mx-20 p-8 md:p-12 overflow-hidden"
+            className="text-white bg-black bg-opacity-40 rounded-lg shadow-xl mx-4 md:mx-20 p-8 md:p-12 overflow-hidden mt-8"
         >
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">About Me</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 ">About Me</h2>
             <div className="md:flex items-center gap-10">
                 <motion.img
                     whileInView={{ opacity: 1, x: 0 }}

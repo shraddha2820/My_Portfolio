@@ -62,7 +62,7 @@ const Contact = () => {
                     <FaGithub />
                 </a>
                 <a
-                    href="mailto:techShraddha28@gmail.com"
+                    href="mailto:techshraddha28@gmail.com"
                     className="hover:text-red-400 transition duration-300"
                 >
                     <MdEmail />

@@ -14,8 +14,7 @@ function App() {
 
 
   return (
-    <div className='bg-[#171d32] h-auto w-full overflow-hidden 
-    antialiased selection:bg-cyan-500 '>
+    <div className='bg-[#171d32] h-auto w-full antialiased selection:bg-cyan-500 '>
       <Navbar />
       <Home />
       <About />
