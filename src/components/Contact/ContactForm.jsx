@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import emailjs from 'emailjs-com';
 
+const inputClass =
+    'w-full rounded-xl border border-gray-300 bg-white px-4 py-3.5 text-primaryBg placeholder:text-slate-400 transition focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/25';
+
 const ContactForm = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -15,7 +18,6 @@ const ContactForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Form Data:", formData);
-        //  email service logic 
         emailjs.send(
             'service_qmxbl82',
             'template_q9ixmbh',
@@ -34,48 +36,78 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="max-w-2xl mx-auto p-8 bg-gradient-to-br from-purple-900 to-black text-white rounded-xl shadow-md">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">Let's Work Together</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-4">
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Full Name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full p-3 rounded bg-[#1c1e2a] text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Email Address"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full p-3 rounded bg-[#1c1e2a] text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
+        <section
+            id="Contact"
+            className="w-full bg-white py-14 md:py-20"
+        >
+            <div className="mx-auto max-w-2xl px-4 md:px-6">
+                <div className="rounded-2xl border border-black bg-white p-8 shadow-sm md:p-10">
+                    <h2 className="mb-2 text-center font-heading text-3xl font-bold tracking-tight text-primaryBg md:text-4xl">
+                        Let&apos;s Work Together
+                    </h2>
+                    <p className="mb-8 text-center text-sm text-slate-600 md:text-base">
+                        Share a short note and I&apos;ll get back to you as soon as I can.
+                    </p>
+                    <form onSubmit={handleSubmit} className="space-y-5">
+                        <div className="grid gap-4 md:grid-cols-2">
+                            <div>
+                                <label htmlFor="contact-name" className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-600">
+                                    Full name
+                                </label>
+                                <input
+                                    id="contact-name"
+                                    type="text"
+                                    name="name"
+                                    placeholder="Your Name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    required
+                                    className={inputClass}
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="contact-email" className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-600">
+                                    Email
+                                </label>
+                                <input
+                                    id="contact-email"
+                                    type="email"
+                                    name="email"
+                                    placeholder="username@example.com"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    required
+                                    className={inputClass}
+                                />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label htmlFor="contact-message" className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-600">
+                                Message
+                            </label>
+                            <textarea
+                                id="contact-message"
+                                name="message"
+                                placeholder="What would you like to say?"
+                                value={formData.message}
+                                onChange={handleChange}
+                                rows={6}
+                                required
+                                className={`${inputClass} min-h-[140px] resize-y`}
+                            />
+                        </div>
+
+                        <button
+                            type="submit"
+                            className="w-full rounded-xl bg-btn py-3.5 text-[15px] font-semibold text-primaryBg shadow-sm transition hover:opacity-90 md:text-base"
+                        >
+                            Submit Request
+                        </button>
+                    </form>
                 </div>
-
-                <textarea
-                    name="message"
-                    placeholder="What do want to say?"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows="6"
-                    required
-                    className="w-full p-3 rounded bg-[#1c1e2a] text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-
-                <button
-                    type="submit"
-                    className="w-full bg-[#465697] hover:bg-[#5e6fa9] transition duration-300 py-3 px-6 text-lg font-semibold rounded-full"
-                >
-                    Submit Request
-                </button>
-            </form>
-        </div>
+            </div>
+        </section>
     );
 };
 

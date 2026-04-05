@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 
+const texts = ["Hi, I am Shraddha", "Hi, I am Shraddha", "Hi, I am Shraddha"];
+
 const TextChange = () => {
 
-    const texts = ["Hi, I am Shraddha", "Hi, I am Shraddha", "Hi, I am Shraddha",]
     const [currentText, setCurrentText] = useState("");
     const [endValue, setendValue] = useState(true);
     const [isForward, setIsforward] = useState(true);
@@ -26,11 +27,11 @@ const TextChange = () => {
             }
         }, 50)
         return () => clearInterval(intervalId)
-    }, [endValue, isForward, index, texts])
+    }, [endValue, isForward, index])
     return (
-        <div className='transition ease duration-300'>
+        <span className="block transition ease duration-300 leading-none">
             {currentText}
-        </div>
+        </span>
     )
 }
 

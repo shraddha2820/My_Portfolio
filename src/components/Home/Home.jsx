@@ -1,7 +1,7 @@
-import img from "../../assets/my_img.jpeg"
 import TextChange from '../../TextChange'
-import { motion } from "motion/react";
+import { motion as Motion } from "motion/react";
 import { Link } from "react-scroll";
+import Navbar from "../Navbar/Navbar";
 
 
 const container = (delay) => ({
@@ -15,98 +15,82 @@ const container = (delay) => ({
 
 const Home = () => {
     return (
-        <div
-            id="Home"
-            className="text-white flex flex-col-reverse md:flex-row items-center justify-between gap-10 p-8 md:p-20 bg-gradient-to-br from-purple-900 to-black"
-        >
-            {/* Left Section */}
-            <div className="w-full md:w-2/4 text-center md:text-left">
-                <motion.h1
-                    variants={container(0)}
-                    initial="hidden"
-                    animate="visible"
-                    className="text-3xl md:text-4xl font-extrabold leading-tight
-                    bg-gradient-to-r from-purple-500 via-slate-500 to-pink-400
-                    bg-clip-text text-transparent tracking-tight"
-                >
-                    <TextChange />
-                </motion.h1>
+        <div id="Home" className="w-full bg-primaryBg">
+            <section className="relative w-full overflow-hidden border-b border-white/10 bg-[#060b08]">
+                <div className="pointer-events-none absolute inset-0 opacity-55 bg-[radial-gradient(circle_at_18%_12%,rgba(34,197,94,0.45),transparent_32%),radial-gradient(circle_at_84%_18%,rgba(163,230,53,0.28),transparent_30%),linear-gradient(90deg,rgba(34,197,94,0.12),transparent_18%,transparent_82%,rgba(34,197,94,0.12))]" />
 
-                <motion.span
-                    variants={container(0.4)}
-                    initial="hidden"
-                    animate="visible"
-                    className="block text-2xl md:text-3xl font-semibold mt-2
-                    bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500
-                    bg-clip-text text-transparent"
-                >
-                    Full Stack Developer
-                </motion.span>
+                <Navbar onHero />
 
-                <motion.p
-                    variants={container(0.8)}
-                    initial="hidden"
-                    animate="visible"
-                    className="text-sm md:text-lg text-gray-300 mt-4 leading-relaxed"
-                >
-                    I'm a passionate Full Stack Developer with hands-on experience in designing, building, and maintaining scalable web applications.
-                    I enjoy working across the stack-developing responsive frontend interfaces with React, managing server-side logic using Node.js and Express,
-                    and handling data persistence with MongoDB. My goal is to build products that are not only functional but also intuitive and elegant.
-                </motion.p>
-
-                <div className="flex justify-center md:justify-start items-center gap-4 ">
-                    <Link
-                        to="Contact"
-                        smooth={true}
-                        duration={800}
-                        offset={-50}
-                    >
-                        <motion.button
-
-                            variants={container(1.2)}
-                            initial="hidden"
-                            animate="visible"
-                            className="mt-6 md:mt-10 text-white py-2 px-6
-                    text-sm md:text-lg hover:opacity-85 duration-300 
-                    hover:scale-105 font-semibold rounded-full bg-[#465697]"
-                        >
-                            Contact Me
-                        </motion.button>
-                    </Link>
-                    <motion.a
-                        href="/resume.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        variants={container(1.4)}
+                <div className="relative z-20 px-6 md:px-12 lg:px-14 pt-8 md:pt-12 lg:pt-14 pb-8 md:pb-9">
+                    <Motion.h1
+                        variants={container(0)}
                         initial="hidden"
                         animate="visible"
+                        className="hero-title m-0 mb-0 text-[52px] md:text-[88px] lg:text-[104px] leading-[0.88] max-w-5xl text-[#F4F9E9]"
                     >
-                        <button
-                            className="mt-6 md:mt-10 text-white py-2 px-6
-                        text-sm md:text-lg hover:opacity-85 duration-300 
-                      hover:scale-105 font-semibold rounded-full bg-[#2f4e71]"
+                        <TextChange />
+                    </Motion.h1>
+
+                    <div className="-mt-1 md:-mt-2 flex flex-col xl:flex-row xl:items-end xl:justify-between gap-5 md:gap-7">
+                        <Motion.span
+                            variants={container(0.4)}
+                            initial="hidden"
+                            animate="visible"
+                            className="font-[serif] italic text-[44px] md:text-[76px] lg:text-[84px] leading-[0.95] text-[#EEF5D9]"
                         >
-                            Resume
-                        </button>
-                    </motion.a>
+                            Full Stack <span className="text-highlight">Developer</span>
+                        </Motion.span>
+
+                        <Motion.p
+                            variants={container(0.8)}
+                            initial="hidden"
+                            animate="visible"
+                            className="body-text max-w-[420px] text-[15px] md:text-[16px] md:leading-[1.6] text-white"
+                        >
+                            Full Stack Developer experienced in building scalable, high-performance web applications. I specialize in developing responsive frontends with React, designing efficient backend systems using Node.js and Express, and managing data with MongoDB.
+                            I aim to deliver clean, intuitive, and reliable user experiences through well-structured and maintainable code.
+                        </Motion.p>
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-4 mt-7">
+                        <Link to="Contact" smooth={true} duration={800} offset={-50}>
+                            <Motion.button
+                                variants={container(1.2)}
+                                initial="hidden"
+                                animate="visible"
+                                className="text-primaryBg py-2 px-6 text-[14px] md:text-[16px] hover:opacity-90 duration-300 hover:scale-105 font-semibold rounded-full bg-[#EEF5D9]"
+                            >
+                                Contact Me
+                            </Motion.button>
+                        </Link>
+                        <Motion.a
+                            href="/resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            variants={container(1.4)}
+                            initial="hidden"
+                            animate="visible"
+                        >
+                            <button className="text-primaryBg py-2 px-6 text-[14px] md:text-[16px] hover:opacity-90 duration-300 hover:scale-105 font-semibold rounded-full bg-btn">
+                                Resume
+                            </button>
+                        </Motion.a>
+                    </div>
                 </div>
 
-            </div>
-
-
-            {/* Right Section (Image) */}
-            <motion.div
-                initial={{ x: 100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 1.2 }}
-            >
-                <img
-                    className="w-60 h-60 md:w-96 md:h-96 rounded-full object-cover shadow-lg"
-                    src={img}
-                    alt="Profile"
-                />
-            </motion.div>
-
+                <Motion.div
+                    initial={{ y: 40, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 1, delay: 1.2 }}
+                    className="relative z-20 w-full pb-6 md:pb-8"
+                >
+                    <img
+                        className="block max-h-[min(50vh,960px)] w-full object-contain grayscale"
+                        src="/images/shraddha.jpg"
+                        alt="Shraddha"
+                    />
+                </Motion.div>
+            </section>
         </div>
     );
 };

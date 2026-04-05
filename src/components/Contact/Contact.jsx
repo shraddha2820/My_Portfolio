@@ -1,109 +1,88 @@
 
 import { FaGithub, FaInstagram, FaLinkedin, FaPhoneAlt } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
-const iconVariants = {
-    initial: { y: 0 },
-    animate: {
-        y: [0, -5, 0],
-        transition: {
-            duration: 1.5,
-            ease: 'easeInOut',
-            repeat: Infinity,
-        }
-    }
-};
+const social = [
+    {
+        href: 'https://www.linkedin.com/in/shraddha-tripathi-451a61128/',
+        label: 'LinkedIn',
+        Icon: FaLinkedin,
+    },
+    {
+        href: 'https://github.com/shraddha2820',
+        label: 'GitHub',
+        Icon: FaGithub,
+    },
+    {
+        href: 'mailto:techshraddha28@gmail.com',
+        label: 'Email',
+        Icon: MdEmail,
+    },
+    {
+        href: 'https://www.instagram.com/i_m_shraddha28/',
+        label: 'Instagram',
+        Icon: FaInstagram,
+    },
+];
 
 const Contact = () => {
     return (
-
-        <div id="Contact" className="text-white w-full md:w-auto">
-            {/* Contact Methods */}
-            <div className="flex flex-col md:flex-row gap-4 md:gap-6 justify-center items-center">
-                <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="flex items-center gap-3 bg-neutral-800 px-5 py-3 rounded-lg shadow-md"
-                >
-                    <MdEmail className="text-blue-400 text-xl" />
-                    <span className="text-sm md:text-base">techshraddha28@gmail.com</span>
-                </motion.div>
-
-                <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="flex items-center gap-3 bg-neutral-800 px-5 py-3 rounded-lg shadow-md"
-                >
-                    <FaPhoneAlt className="text-green-400 text-xl" />
-                    <span className="text-sm md:text-base">+91 8178492630</span>
-                </motion.div>
-            </div>
-
-            {/* Social Icons */}
-            <motion.div
-                initial="initial"
-                animate="animate"
-                variants={iconVariants}
-                className="flex justify-center gap-6 mt-6 text-2xl"
-            >
-                <a
-                    href="https://www.linkedin.com/in/shraddha-tripathi-451a61128/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-blue-500 transition duration-300"
-                >
-                    <FaLinkedin />
-                </a>
-                <a
-                    href="https://github.com/shraddha-dotcom"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-gray-400 transition duration-300"
-                >
-                    <FaGithub />
-                </a>
+        <div className="w-full md:ml-auto md:max-w-lg">
+            <p className="mb-5 text-center text-xs font-semibold uppercase tracking-wider text-slate-500 md:text-left">
+                Contact
+            </p>
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center md:justify-start md:gap-4">
                 <a
                     href="mailto:techshraddha28@gmail.com"
-                    className="hover:text-red-400 transition duration-300"
+                    className="group inline-flex items-center justify-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3.5 text-left shadow-sm transition hover:border-gray-300 hover:shadow md:justify-start"
                 >
-                    <MdEmail />
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                        <MdEmail className="text-xl" aria-hidden />
+                    </span>
+                    <span className="text-sm font-medium text-primaryBg break-all sm:break-normal">
+                        techshraddha28@gmail.com
+                    </span>
                 </a>
                 <a
-                    href="https://www.instagram.com/i_m_shraddha28/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-pink-500 transition duration-300"
+                    href="tel:+918178492630"
+                    className="group inline-flex items-center justify-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3.5 text-left shadow-sm transition hover:border-gray-300 hover:shadow md:justify-start"
                 >
-                    <FaInstagram />
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-highlight/15 text-highlight">
+                        <FaPhoneAlt className="text-lg" aria-hidden />
+                    </span>
+                    <span className="text-sm font-medium text-primaryBg">
+                        +91 8178492630
+                    </span>
                 </a>
-            </motion.div>
-        </div>
+            </div>
 
+            <div className="mt-8 md:mt-10">
+                <p className="mb-4 text-center text-xs font-semibold uppercase tracking-wider text-slate-500 md:text-left">
+                    Social
+                </p>
+                <div className="flex flex-wrap items-center justify-center gap-3 md:justify-start">
+                    {social.map((item) => {
+                        const IconComponent = item.Icon;
+                        return (
+                        <Motion.a
+                            key={item.label}
+                            href={item.href}
+                            target={item.href.startsWith('http') ? '_blank' : undefined}
+                            rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
+                            aria-label={item.label}
+                            whileHover={{ y: -2 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white text-xl text-slate-600 shadow-sm transition hover:border-gray-300 hover:text-primaryBg hover:shadow"
+                        >
+                            <IconComponent aria-hidden />
+                        </Motion.a>
+                        );
+                    })}
+                </div>
+            </div>
+        </div>
     );
 };
 
 export default Contact;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

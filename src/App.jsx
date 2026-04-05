@@ -1,7 +1,6 @@
 import './App.css'
-import Navbar from './components/Navbar/Navbar'
 import Home from "./components/Home/Home";
-import About from "./components/About/About";
+import Services from "./components/Services/Services";
 import Projects from "./components/Projects/Projects"
 import Footer from './components/Footer/Footer';
 import Skills from './components/Skills/Skills';
@@ -14,10 +13,9 @@ function App() {
 
 
   return (
-    <div className='bg-[#171d32] h-auto w-full antialiased selection:bg-cyan-500 '>
-      <Navbar />
+    <div className='bg-primaryBg min-h-screen w-full selection:bg-accent/40 selection:text-textPrimary'>
       <Home />
-      <About />
+      <Services />
       <Skills />
       <Projects />
       <CertificateSlider />

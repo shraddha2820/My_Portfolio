@@ -1,93 +1,117 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
-import { BiLinkExternal } from 'react-icons/bi';
 
-const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i) => ({
-        opacity: 1,
-        y: 0,
-        transition: {
-            delay: i * 0.2,
-            duration: 1.5,
-            ease: 'easeOut',
-        }
-    }),
-};
+const ProjectCards = ({
+    title,
+    main,
+    github,
+    live,
+    image,
+    stackImages,
+    tags = [],
+    featured = false,
+    index = 0,
+}) => {
+    const href = live || github || '#';
+    const hasStack = Array.isArray(stackImages) && stackImages.length >= 2;
 
-const ProjectCards = ({ title, main, github, live, image, index = 0 }) => {
     return (
-        <motion.div
+        <Motion.article
             custom={index}
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className='flex flex-col w-full max-w-md bg-[#0c0e19] rounded-2xl shadow-lg hover:shadow-blue-500/20 transition-shadow duration-300 overflow-hidden'
+            transition={{ duration: 0.5, delay: index * 0.06 }}
+            className="flex h-full flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-md"
         >
-            <div className="flex items-center gap-4 p-4">
-                <img src={image} alt="project logo" className='h-14 w-14 rounded-xl bg-white p-1' />
-                <h3 className='text-lg md:text-2xl font-bold text-white'>{title}</h3>
+            <div className="relative w-full overflow-hidden">
+                {hasStack ? (
+                    <div className="relative aspect-[16/10] w-full min-h-[200px] bg-slate-100/90 md:aspect-video">
+                        {/* Back layer: right column only — not full width */}
+                        <img
+                            src={stackImages[0]}
+                            alt=""
+                            className="absolute right-0 top-[6%] bottom-[6%] z-0 w-[48%] rounded-xl object-cover object-center shadow-md sm:right-1 sm:w-[46%] md:w-[44%]"
+                        />
+                        {/* Front layer: left card ~55% width, overlaps center */}
+                        <div className="absolute left-0 top-[5%] bottom-[5%] z-10 w-[58%] overflow-hidden rounded-xl border border-white/90 bg-white shadow-[0_20px_45px_-6px_rgba(15,23,42,0.28)] sm:left-1 sm:w-[56%] md:left-2 md:w-[54%]">
+                            <img
+                                src={stackImages[1]}
+                                alt=""
+                                className="h-full w-full object-cover object-top-left"
+                            />
+                        </div>
+                    </div>
+                ) : (
+                    <img
+                        src={image}
+                        alt=""
+                        className="aspect-video w-full object-cover object-top"
+                    />
+                )}
             </div>
 
-            <p className='text-gray-300 text-sm md:text-base px-4 pb-4'>
-                {main}
-            </p>
+            <div className="flex flex-1 flex-col p-6 md:p-8">
+                <h3 className="font-heading text-xl font-bold text-primaryBg md:text-2xl">
+                    {title}
+                </h3>
 
-            <div className='flex flex-wrap justify-start gap-3 px-4 pb-4'>
-                {github && (
-                    <a
-                        href={github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className='flex items-center gap-2 bg-[#465697] text-white text-sm md:text-base px-4 py-2 rounded-full hover:bg-[#5e6fa9] transition duration-300'
-                    >
-                        <FaGithub className='text-lg' /> GitHub
-                    </a>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600 md:text-[15px]">
+                    {main}
+                </p>
 
+                {tags.length > 0 && (
+                    <div className="mt-5 flex flex-wrap gap-2">
+                        {tags.map((tag) => (
+                            <span
+                                key={tag}
+                                className="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-medium text-slate-700"
+                            >
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
                 )}
 
-                {live && (
+                <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-gray-100 pt-5">
                     <a
-                        href={live}
+                        href={href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className='flex items-center gap-2 bg-[#465697] text-white text-sm md:text-base px-4 py-2 rounded-full hover:bg-[#5e6fa9] transition duration-300'
+                        className="group inline-flex items-center gap-3 text-primaryBg"
                     >
-                        <BiLinkExternal className='text-lg' /> Live
+                        <span className="text-sm font-semibold md:text-base">View Project</span>
+                        <span
+                            className={[
+                                'flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition group-hover:opacity-90',
+                                featured
+                                    ? 'bg-btn text-primaryBg shadow-sm'
+                                    : 'border border-gray-300 bg-white text-slate-600',
+                            ].join(' ')}
+                        >
+                            {featured ? (
+                                <ArrowUpRight className="h-5 w-5" strokeWidth={2.25} aria-hidden />
+                            ) : (
+                                <ArrowRight className="h-5 w-5" strokeWidth={2} aria-hidden />
+                            )}
+                        </span>
                     </a>
-
-                )}
-
-
+                    {github && (
+                        <a
+                            href={github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-sm text-slate-500 transition hover:text-primaryBg"
+                        >
+                            <FaGithub className="text-lg" aria-hidden />
+                            <span className="hidden sm:inline">GitHub</span>
+                        </a>
+                    )}
+                </div>
             </div>
-        </motion.div>
+        </Motion.article>
     );
 };
 
 export default ProjectCards;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

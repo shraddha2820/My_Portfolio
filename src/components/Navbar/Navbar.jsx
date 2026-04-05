@@ -1,36 +1,48 @@
 import { useState } from 'react'
 import { RiCloseLine, RiMenu2Line } from "@remixicon/react"
-const Navbar = () => {
+import { Link } from "react-scroll";
+
+const Navbar = ({ onHero = false }) => {
 
     const [menuOpen, setMenuOpen] = useState(false);
+    const navClass = onHero
+        ? 'relative z-30 flex justify-between items-center px-6 py-6 md:px-12 lg:px-14 text-textPrimary'
+        : 'sticky top-0 z-50 flex justify-between items-center px-6 py-4 md:px-20 bg-secondaryBg/90 text-textPrimary shadow-md backdrop-blur-md border-b border-white/10';
+
     return (
-        <nav className='sticky top-0 z-50 flex justify-between items-center px-6 py-4 md:px-20 bg-black bg-opacity-80 text-white shadow-md'>
-            <span className='text-2xl font-extrabold tracking-wide'>Portfolio</span>
+        <nav className={navClass}>
+            <span className='font-heading text-[22px] md:text-[30px] font-semibold tracking-tight'>Portfolio</span>
 
             {/* Desktop Menu */}
-            <ul className='hidden md:flex gap-10 font-semibold text-lg'>
-                {["Home", "About", "Skills", "Projects", "Certificates", "Contact"].map(link => (
-                    <a key={link} href={`#${link}`} className='transition-all duration-200 hover:text-indigo-400'>
+            <ul className='hidden md:flex gap-8 font-medium text-[14px] text-textPrimary/90'>
+                {["Home", "Services", "Skills", "Projects", "Certificates", "Contact"].map(link => (
+                    <a key={link} href={`#${link}`} className='transition-all duration-200 hover:text-accent'>
                         <li>{link}</li>
                     </a>
                 ))}
             </ul>
 
+            <Link to="Contact" smooth={true} duration={700} offset={-40} className='hidden md:inline-block'>
+                <button className='bg-btn text-primaryBg font-semibold px-6 py-2.5 rounded-[2px] hover:opacity-90 transition shadow-md shadow-btn/25'>
+                    Let's Talk!
+                </button>
+            </Link>
+
             {/* Mobile Menu Icon */}
             <div
-                className='md:hidden cursor-pointer'
+                className='md:hidden cursor-pointer z-40'
                 onClick={() => setMenuOpen(!menuOpen)}
             >
                 {menuOpen ? <RiCloseLine size={28} /> : <RiMenu2Line size={28} />}
             </div>
 
             {/* Mobile Dropdown Menu */}
-            <ul className={`absolute top-full left-0 w-full bg-black bg-opacity-90 backdrop-blur-md transition-all duration-300 ease-in-out 
+            <ul className={`absolute top-full left-0 w-full bg-secondaryBg/95 backdrop-blur-md transition-all duration-300 ease-in-out 
           ${menuOpen ? "translate-y-0 opacity-100" : "-translate-y-96 opacity-0"} 
-          md:hidden flex flex-col items-center gap-6 py-6 rounded-b-xl shadow-lg`}>
-                {["Home", "About", "Skills", "Projects", "Certificates", "Contact"].map(link => (
+          md:hidden flex flex-col items-center gap-6 py-6 rounded-b-xl shadow-lg border-b border-white/10`}>
+                {["Home", "Services", "Skills", "Projects", "Certificates", "Contact"].map(link => (
                     <a key={link} href={`#${link}`} onClick={() => setMenuOpen(false)}>
-                        <li className='text-lg font-medium hover:text-indigo-400 transition duration-200'>{link}</li>
+                        <li className='text-[16px] font-medium hover:text-accent transition duration-200'>{link}</li>
                     </a>
                 ))}
             </ul>
