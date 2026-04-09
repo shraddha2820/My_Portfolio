@@ -8,13 +8,11 @@ const ProjectCards = ({
     github,
     live,
     image,
-    stackImages,
     tags = [],
     featured = false,
     index = 0,
 }) => {
     const href = live || github || '#';
-    const hasStack = Array.isArray(stackImages) && stackImages.length >= 2;
 
     return (
         <Motion.article
@@ -26,30 +24,11 @@ const ProjectCards = ({
             className="flex h-full flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-md"
         >
             <div className="relative w-full overflow-hidden">
-                {hasStack ? (
-                    <div className="relative aspect-[16/10] w-full min-h-[200px] bg-slate-100/90 md:aspect-video">
-                        {/* Back layer: right column only — not full width */}
-                        <img
-                            src={stackImages[0]}
-                            alt=""
-                            className="absolute right-0 top-[6%] bottom-[6%] z-0 w-[48%] rounded-xl object-cover object-center shadow-md sm:right-1 sm:w-[46%] md:w-[44%]"
-                        />
-                        {/* Front layer: left card ~55% width, overlaps center */}
-                        <div className="absolute left-0 top-[5%] bottom-[5%] z-10 w-[58%] overflow-hidden rounded-xl border border-white/90 bg-white shadow-[0_20px_45px_-6px_rgba(15,23,42,0.28)] sm:left-1 sm:w-[56%] md:left-2 md:w-[54%]">
-                            <img
-                                src={stackImages[1]}
-                                alt=""
-                                className="h-full w-full object-cover object-top-left"
-                            />
-                        </div>
-                    </div>
-                ) : (
-                    <img
-                        src={image}
-                        alt=""
-                        className="aspect-video w-full object-cover object-top"
-                    />
-                )}
+                <img
+                    src={image}
+                    alt=""
+                    className="aspect-video w-full object-cover object-top"
+                />
             </div>
 
             <div className="flex flex-1 flex-col p-6 md:p-8">

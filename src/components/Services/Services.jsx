@@ -3,7 +3,7 @@ import { ArrowUpRight } from 'lucide-react';
 const services = [
     {
         title: 'Web Design',
-        description: 'We create modern, responsive, stunning websites',
+        description: 'I create modern, responsive, stunning websites',
         image: '/images/my-services-img1.jpg',
         alt: 'Web design workspace',
         showCta: true,
@@ -11,7 +11,7 @@ const services = [
     },
     {
         title: 'App Design',
-        description: 'We create sleek, intuitive app designs that enhance user experiences',
+        description: 'I create sleek, intuitive app designs that enhance user experiences',
         image: '/images/my-services-img2.jpg',
         alt: 'Mobile app design',
         showCta: false,
@@ -19,7 +19,7 @@ const services = [
     },
     {
         title: '360 Development',
-        description: 'From front-end to back-end, we deliver clean, efficient code',
+        description: 'From front-end to back-end, I deliver clean, efficient code',
         image: '/images/my-services-img3.jpg',
         alt: 'Full-stack development workspace',
         showCta: false,

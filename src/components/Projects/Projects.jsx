@@ -3,15 +3,15 @@ import ProjectCards from './ProjectCards';
 const featuredProjects = [
     {
         title: 'Hcase',
-        main: 'A polished web platform focused on clear information architecture, fast load times, and a professional experience tailored for case-related services and audiences.',
+        main: 'Built a scalable healthcare platform with responsive UI, optimized performance, and structured information architecture for efficient doctor–patient interactions.',
         live: 'https://hcase.in',
-        stackImages: ['/images/hcase1.png', '/images/hcase2.png'],
+        image: '/images/hcase2.png',
         tags: ['React', 'Responsive UI', 'Performance'],
         featured: true,
     },
     {
         title: 'Cognentra',
-        main: 'Corporate web presence with emphasis on trust, structured content, and scalable layout patterns—built for clarity across marketing, services, and contact flows.',
+        main: 'Developed a corporate website with scalable layout architecture, SEO optimization, and structured content design to enhance user trust and engagement.',
         live: 'https://cognentra.com',
         image: '/images/cognentra.png',
         tags: ['Next.js', 'Tailwind CSS', 'SEO'],
@@ -79,7 +79,6 @@ const Projects = () => {
                             github={project.github}
                             live={project.live}
                             image={project.image}
-                            stackImages={project.stackImages}
                             tags={project.tags}
                             featured={project.featured === true}
                             index={index}

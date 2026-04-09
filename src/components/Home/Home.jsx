@@ -64,7 +64,7 @@ const Home = () => {
                             </Motion.button>
                         </Link>
                         <Motion.a
-                            href="/Shraddha_Tripathi_2026_resume.pdf"
+                            href="/Shraddha_Tripathi_CV_2026.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             variants={container(1.4)}
